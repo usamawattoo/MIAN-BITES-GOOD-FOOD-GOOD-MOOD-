@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your Order — MIAN BITES | Checkout & WhatsApp Ordering</title>
+<meta name="description" content="Review your MIAN BITES order, choose delivery, takeaway or dine-in, and send your order directly on WhatsApp.">
+<link rel="icon" href="logo.jpg">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0c0a09">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <img src="logo.jpg" alt="MIAN BITES logo" class="brand-logo">
+      <span>
+        <span class="brand-name">MIAN BITES</span>
+        <span class="brand-tagline">GOOD FOOD . GOOD MOOD</span>
+      </span>
+    </a>
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="deals.html">Deals</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="order.html" aria-current="page">Order Now</a>
+    </nav>
+    <div class="header-actions">
+      <a href="tel:+923008118120" class="icon-btn" aria-label="Call MIAN BITES">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </a>
+      <button type="button" class="icon-btn js-open-cart" aria-label="Open cart">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="cart-count">0</span>
+      </button>
+      <button type="button" class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="section-tight">
+    <div class="container">
+      <div class="section-title-solo">
+        <h1 style="font-size:clamp(1.8rem,4vw,2.4rem);">Your Order</h1>
+        <p>Review your items, fill in your details, and send your order on WhatsApp.</p>
+      </div>
+
+      <div class="order-layout">
+
+        <div>
+          <h2 style="font-size:1.15rem; margin-bottom:14px;">Cart Items</h2>
+          <div class="cart-list" id="orderCartList"></div>
+          <div class="empty-cart" id="orderEmpty" style="display:none;">
+            <p>Your cart is empty.</p>
+            <a href="menu.html" class="btn btn-outline" style="margin-top:14px;">Browse the Menu</a>
+          </div>
+
+          <h2 style="font-size:1.15rem; margin:32px 0 14px;">Your Details</h2>
+          <form id="orderForm" novalidate>
+
+            <div class="field">
+              <label for="custName">Full Name</label>
+              <input type="text" id="custName" name="custName" placeholder="e.g.USAMA IMRAN " required>
+              <span class="field-error">Please enter your name.</span>
+            </div>
+
+            <div class="field">
+              <label for="custPhone">Phone Number</label>
+              <input type="tel" id="custPhone" name="custPhone" placeholder="0371-6895780" required>
+              <span class="field-error">Please enter a valid phone number.</span>
+            </div>
+
+            <div class="field">
+              <label>Order Type</label>
+              <div class="radio-group">
+                <label class="radio-pill">
+                  <input type="radio" name="orderType" value="Delivery" checked>
+                  Delivery
+                </label>
+                <label class="radio-pill">
+                  <input type="radio" name="orderType" value="Takeaway">
+                  Takeaway
+                </label>
+                <label class="radio-pill">
+                  <input type="radio" name="orderType" value="Dine-in">
+                  Dine-in
+                </label>
+              </div>
+              <p class="order-type-note">Cash on delivery available for all order types.</p>
+            </div>
+
+            <div class="field" id="addressField">
+              <label for="custAddress">Delivery Address</label>
+              <textarea id="custAddress" name="custAddress" rows="3" placeholder="House / street, nearest landmark, area"></textarea>
+              <span class="field-error">Please enter your delivery address.</span>
+            </div>
+
+            <div class="field">
+              <label for="custNotes">Order Notes (optional)</label>
+              <textarea id="custNotes" name="custNotes" rows="2" placeholder="Any special instructions"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block" id="whatsappOrderBtn">
+              Review & Send Order on WhatsApp
+            </button>
+            <p class="summary-note" style="margin-top:10px;">This opens WhatsApp with your complete order pre-filled, sent to MIAN BITES at 0300-8118120. Nothing is sent until you press send inside WhatsApp.</p>
+          </form>
+        </div>
+
+        <div class="summary-box" id="orderSummary"></div>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-brand">
+          <img src="logo.jpg" alt="MIAN BITES logo">
+          <strong>MIAN BITES</strong>
+        </div>
+        <p>Good food, good mood — cafe & fast food in Ferozewattwan since 2026.</p>
+        <div class="social-row">
+          <a href="https://www.facebook.com/share/1FKU7Yk7Wx/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="https://www.tiktok.com/@usama.facts?_r=1&_t=ZN-9A40J8oy7fC" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg></a>
+          <a href="https://wa.me/923008118120" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.5 8.5 0 0 1-12.4 7.55L3 20l1.05-5.4A8.5 8.5 0 1 1 21 11.5z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="menu.html">Full Menu</a></li>
+          <li><a href="deals.html">Deals</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Hours & delivery</h4>
+        <ul>
+          <li>Daily, 2:00 PM – 2:00 AM</li>
+          <li>Free delivery above Rs.1000</li>
+          <li>Cash on delivery available</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li>Madina Market, Opp. Lucky Pump, Lahore Road, Ferozewattwan</li>
+          <li><a href="tel:+923008118120">0300-8118120</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="faint-rule">
+    <div class="footer-bottom">
+      <span>&copy; <span id="year"></span> MIAN BITES. All rights reserved.</span>
+      <span>Owned by Muhammad Shazad</span>
+    </div>
+  </div>
+</footer>
+
+<div id="orderPageRoot" style="display:none;"></div>
+
+<div class="cart-drawer-overlay" id="drawerOverlay"></div>
+<aside class="cart-drawer" id="cartDrawer">
+  <div class="cart-drawer-head">
+    <h3>Your Cart</h3>
+    <button type="button" class="icon-btn" id="drawerClose" aria-label="Close cart">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <div class="cart-drawer-body" id="drawerBody"></div>
+  <div class="cart-drawer-foot" id="drawerFoot"></div>
+</aside>
+
+<script src="script.js"></script>
+</body>
+</html>

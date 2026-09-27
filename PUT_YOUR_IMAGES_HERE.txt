@@ -1,0 +1,7 @@
+Place your two image files in this folder with these EXACT names:
+
+  logo.jpg
+  hero-pizza.jpeg
+
+Nothing else needs to change - every page already points to
+logo.jpg and hero-pizza.jpeg.

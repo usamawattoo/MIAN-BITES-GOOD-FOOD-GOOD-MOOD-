@@ -1,0 +1,21 @@
+{
+  "name": "MIAN BITES",
+  "short_name": "MIAN BITES",
+  "description": "Cafe & Fast Food — Good Food . Good Mood",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#0c0a09",
+  "theme_color": "#a3172a",
+  "icons": [
+    {
+      "src": "logo.jpg",
+      "sizes": "192x192",
+      "type": "jpeg"
+    },
+    {
+      "src": "logo.jpg",
+      "sizes": "512x512",
+      "type": "jpg"
+    }
+  ]
+}
